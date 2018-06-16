@@ -13,7 +13,6 @@
   export default {
     layout: 'title'
   }
-
 </script>
 
 <style>
