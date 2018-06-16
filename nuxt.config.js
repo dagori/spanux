@@ -35,5 +35,10 @@ module.exports = {
       }
     }
   },
-  router: { base: '/spanux/' }
+  router: { base: '/spanux/' },
+
+  env: {
+    baseUrl: process.env || 'http://localhost:3000/spanux'
+  },
+  css: ['~/assets/main.css']
 }

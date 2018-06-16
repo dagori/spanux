@@ -1,10 +1,10 @@
 <template>
   <div class="container__header">
-    <div class="logo">
-      <span></span>
-      <span></span>
-    </div>
+    <div class="logo"></div>
     <h1 class="title"><nuxt-link to="/">TITLE</nuxt-link></h1>
+    <nav class="main-navigation">
+
+    </nav>
   </div>
 </template>
 
