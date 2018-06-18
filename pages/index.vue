@@ -1,6 +1,6 @@
 <template>
-  <form class="subscribe__form" action="mailto:asdfgh@ya.ru" autocomplete="on" enctype="multipart/form-data" method="post" name="subscribe">
-    <input type="email" class="subscribe__input" placeholder="Введите e-mail" autofocus maxlenght="30">
+  <form class="subscribe__form" action="mailto:asffffffffffffdfgh@ya.ru" autocomplete="on" enctype="multipart/form-data" method="post" name="subscribe">
+    <input type="email" class="subscribe__input" placeholder="Подписаться на рассылку" autofocus @mouseout="changePlaceholder" @mouseover="changePlaceholder">
     <button class="button subscribe__button" type="submit">
       <svg width="50" height="50">
         <image xlink:href="./../assets/send-icon.svg" src="./../assets/send-icon.png" width="50" height="50"/>
@@ -11,7 +11,16 @@
 
 <script>
   export default {
-    layout: 'title'
+    layout: 'title',
+    methods: {
+      changePlaceholder(evt) {
+        if (evt.type === 'mouseover') {
+          document.querySelector('.subscribe__input').placeholder = 'Введите  e-mail';
+        } else if (evt.type === 'mouseout') {
+          document.querySelector('.subscribe__input').placeholder = 'Подписаться на рассылку';
+        }
+      }
+    }
   }
 </script>
 
@@ -43,11 +52,18 @@
     padding-left: 25px;
     padding-right: 5px;
     font-size: 16px;
+    word-wrap: break-word;
   }
 
   .subscribe__input::placeholder {
-    font-size: 16px;
+    font-size: 85%;
     text-transform: uppercase;
+    transition: font-size 1s;
+  }
+
+  .subscribe__input:hover::placeholder {
+    color: rgba(25, 25, 112, 1);
+    font-size: 92%;
   }
 
   .subscribe__input:hover {

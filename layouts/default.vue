@@ -28,32 +28,6 @@
 </script>
 
 <style>
-  html {
-    font-family:  "Helvetica Neue", Arial, sans-serif;
-    font-size: 16px;
-    word-spacing: 1px;
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    box-sizing: border-box;
-  }
-
-  *, *:before, *:after {
-    box-sizing: border-box;
-    margin: 0;
-  }
-
-  ul, li {
-    list-style: none;
-    padding: 0;
-  }
-
-  a {
-    text-decoration: none;
-    color: black;
-  }
-
   .container {
     display: grid;
     min-height: 100vh;
@@ -70,7 +44,7 @@
 
   nav {
     grid-area: nav;
-    background: lightblue;
+    background: orange;
   }
 
   main {
