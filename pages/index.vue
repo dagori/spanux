@@ -50,7 +50,7 @@
     background: rgba(255, 255, 255, 0.5);
     transition: background-color 1s;
     padding-left: 25px;
-    padding-right: 5px;
+    padding-right: 15px;
     font-size: 16px;
     word-wrap: break-word;
   }

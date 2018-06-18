@@ -1,8 +1,7 @@
 <template>
-  <div class="m" @mousemove="setGradient">
+  <div class="bottom-layer" @mousemove="setGradient">
     <div class="title-grid-container">
-      <header><app-header/></header>
-      <nav><app-nav/></nav>
+      <header><app-header/><app-breadcrumbs/></header>
       <main>
         <nuxt/>
       </main>
@@ -13,38 +12,31 @@
 
 <script>
   import AppHeader from "./../components/AppHeader.vue";
-  import AppNav from "./../components/AppNav.vue";
   import AppContent from "./../components/AppContent.vue";
   import AppFooter from "./../components/AppFooter.vue";
 
   export default {
     components: {
       AppHeader,
-      AppNav,
       AppContent,
       AppFooter
     },
     methods: {
       setGradient(e) {
-        let x = e.clientX;
-        let y = e.clientY;
-        document.getElementById('title-overlay').style.background = `repeating-radial-gradient(circle at ${x}px ${y}px, transparent, rgba(238, 130, 238, 0.3), rgba(102, 205, 170, 0.4), rgba(124, 252, 0, 0.5))`;
-        document.getElementById('title-overlay').style.animation = 'visual 2s';
+        let x = e.pageX;
+        let y = e.pageY;
+        document.querySelector('.bottom-layer').style.backgroundImage = `repeating-radial-gradient(circle at ${x}px ${y}px, transparent, rgba(238, 130, 238, 0.3), rgba(102, 205, 170, 0.4)`;
+        document.querySelector('.bottom-layer').style.animation = 'visual 2s';
       }
     }
   }
 </script>
 
 <style>
-  .m {
+  .bottom-layer {
     background-image: url('../assets/plant-bg.jpg');
     background-size: cover;
     background-position: center;
-  }
-
-  #index-overlay img {
-    width: 100%;
-    height: auto;
   }
 
   @keyframes visual {
@@ -59,34 +51,20 @@
   .title-grid-container {
     display: grid;
     min-height: 100vh;
-    grid-template-columns: [header-start nav-start footer-start] auto 0vw auto [nav-end main-start] 100vw;
-    grid-template-rows: [header-start] 10vh [header-end nav-start main-start] minmax(83vh, auto) [nav-end main-end footer-start] 5vh [footer-end];
-    grid-gap: 5px;
+    grid-template-columns: 100vw;
+    grid-template-rows: 10vh minmax(83vh, auto) 5vh;
     overflow: hidden;
   }
 
-  .title-grid-container >* {
-    border: 1px solid red;
-  }
-
   header {
-    grid-area: header;
-    background-color: rgba(255, 255, 255, 0.7);
-  }
-
-  nav {
-    grid-area: nav;
-    overflow-y: auto;
-    z-index: -5;
+    background-color: rgba(255, 255, 255, 0.6);
   }
 
   main {
-    grid-area: main;
     position: relative;
   }
 
   footer {
-    grid-area: footer;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.6);
   }
 </style>
