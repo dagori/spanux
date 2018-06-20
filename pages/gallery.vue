@@ -1,5 +1,5 @@
 <template>
-  <div class="gallery-container">
+  <div class="gallery">
     <div class="gallery__item">
       <img alt="image" src="../assets/gallery/img-16.jpg">
     </div>
@@ -16,10 +16,13 @@
       <img alt="image" src="../assets/gallery/img-5.jpg">
     </div>
     <div class="gallery__item">
-      <img alt="image" src="../assets/gallery/img-18.jpg">
+      <img alt="image" src="../assets/gallery/img-6.jpg">
     </div>
     <div class="gallery__item">
       <img alt="image" src="../assets/gallery/img-7.jpg">
+    </div>
+    <div class="gallery__item">
+      <img alt="image" src="../assets/gallery/img-8.jpg">
     </div>
     <div class="gallery__item">
       <img alt="image" src="../assets/gallery/img-9.jpg">
@@ -34,6 +37,9 @@
       <img alt="image" src="../assets/gallery/img-12.jpg">
     </div>
     <div class="gallery__item">
+      <img alt="image" src="../assets/gallery/img-13.jpg">
+    </div>
+    <div class="gallery__item">
       <img alt="image" src="../assets/gallery/img-14.jpg">
     </div>
     <div class="gallery__item">
@@ -46,7 +52,7 @@
       <img alt="image" src="../assets/gallery/img-17.jpg">
     </div>
     <div class="gallery__item">
-      <img alt="image" src="../assets/gallery/img-6.jpg">
+      <img alt="image" src="../assets/gallery/img-18.jpg">
     </div>
   </div>
 </template>
@@ -68,23 +74,36 @@ export default {
 </script>
 
 <style>
-  .gallery-container {
+  .gallery {
     display: grid;
     grid-gap: 3px;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-template-rows: repeat(auto, 120px);
-  /*  align-items: flex-start;*/
+    grid-template-columns: repeat(4, 1fr);
   }
 
   .gallery__item {
-    max-width: 100%;
-    min-width: 100px;
-    background: blue;
+    min-width: 200px;
+    position: relative;
+    background: yellow;
+  }
+
+  .gallery__item:hover img {
+    position: absolute;
+    transform: scale(1.2);
+    z-index: 3;
+  }
+
+  .gallery__item img:not(.gallery__item:hover img) {
+    opacity: 0.5;
   }
 
   .gallery__item img {
     display: block;
     width: 100%;
-    height: auto;
+    height: 300px;
+    object-fit: cover;
+    transition-property: transform, z-index;
+    transition-duration: 0.5s;
+    transition-timing-function: linear;
+    transition-delay: 0.2s, 0.5s, 0s;
   }
 </style>
