@@ -92,18 +92,27 @@ export default {
     z-index: 3;
   }
 
-  .gallery__item img:not(.gallery__item:hover img) {
-    opacity: 0.5;
-  }
-
   .gallery__item img {
     display: block;
     width: 100%;
     height: 300px;
     object-fit: cover;
     transition-property: transform, z-index;
-    transition-duration: 0.5s;
+    transition-duration: 0.5s, 0s;
     transition-timing-function: linear;
-    transition-delay: 0.2s, 0.5s, 0s;
+    transition-delay: 0.2s, 0.5s;
+  }
+
+  .gallery__item--active img {
+    width: auto;
+    max-width: 70vw;
+    height: auto;
+    max-height: 80vh;
+    object-fit: contain;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 4;
   }
 </style>
