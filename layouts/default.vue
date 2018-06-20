@@ -1,13 +1,15 @@
 <template>
-  <div class="container">
-    <header><app-header/></header>
-    <nav><app-nav/></nav>
-    <main>
-      <router-view>
-        <nuxt/>
-      </router-view>
-    </main>
-    <footer><app-footer/></footer>
+  <div class="bottom-layer">
+    <div class="container">
+      <header><app-header/></header>
+      <nav><app-nav/></nav>
+      <main>
+        <router-view>
+          <nuxt/>
+        </router-view>
+      </main>
+      <footer><app-footer/></footer>
+    </div>
   </div>
 </template>
 
@@ -28,13 +30,28 @@
 </script>
 
 <style>
+  .bottom-layer {
+    background-image: url('../assets/images/plant-bg.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+
+  @keyframes visual {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
   .container {
     display: grid;
     min-height: 100vh;
-    /*grid-template-rows: 10vh 85vh 5vh;*/
     grid-template-columns: [header-start nav-start footer-start] auto minmax(150px, 15vw) auto [nav-end main-start] minmax(300px, 85vw);
     grid-template-rows: [header-start] 10vh [header-end nav-start main-start] minmax(83vh, auto) [nav-end main-end footer-start] 7vh [footer-end];
     grid-gap: 5px;
+    background: black;
   }
 
   header {
@@ -49,6 +66,7 @@
 
   main {
     grid-area: main;
+    background: white;
   }
 
   footer {

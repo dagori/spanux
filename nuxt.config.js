@@ -40,5 +40,6 @@ module.exports = {
   env: {
     baseUrl: process.env || 'http://localhost:3000/spanux'
   },
-  css: ['~/assets/main.css']
+  
+  css: ['~/assets/css/main.css']
 }

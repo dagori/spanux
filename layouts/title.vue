@@ -1,7 +1,8 @@
 <template>
-  <div class="bottom-layer" @mousemove="setGradient">
+  <div class="bottom-layer">
+    <h1 class="title"><nuxt-link to="/">TITLE</nuxt-link></h1>
     <div class="title-grid-container">
-      <header><app-header/><app-breadcrumbs/></header>
+      <header><app-header/></header>
       <main>
         <nuxt/>
       </main>
@@ -34,7 +35,7 @@
 
 <style>
   .bottom-layer {
-    background-image: url('../assets/plant-bg.jpg');
+    background-image: url('../assets/images/plant-bg.jpg');
     background-size: cover;
     background-position: center;
   }
