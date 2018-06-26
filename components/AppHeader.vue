@@ -1,11 +1,13 @@
 <template>
   <div class="container__header">
     <div class="logo">
-      <svg width="73" height="73">
-        <image xlink:href="./../assets/images/if_Rubics_Cube.svg" width="73" height="73"/>
-      </svg>
+      <picture>
+        <source media="(min-width: 990px)" srcset="../assets/images/tree-desktop.svg">
+        <source media="(min-width: 600px)" srcset="../assets/images/tree-tablet.svg">
+        <img class="logo__image" src="../assets/images/tree-mobile.svg" alt="logo">
+      </picture>
     </div>
-    <div class="links"><nuxt-link to="/">Single page application & SSR</nuxt-link></div>
+    <div class="title"><nuxt-link to="/">Single page application & SSR</nuxt-link></div>
   </div>
 </template>
 
@@ -14,12 +16,39 @@
 </script>
 
 <style>
-svg polygon {
-  fill: red;
-}
+  .container__header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
-svg:hover polygon {
-  fill: blue;
-}
+  .title a {
+    color: white;
+    font-size: 20px;
+  }
+
+  @media (min-width: 600px) {
+    .container__header {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    .logo {
+      margin-left: 30%;
+    }
+
+    .title {
+      margin: 0 20px;
+    }
+
+    .title a {
+      font-size: 30px;
+    }
+
+
+  }
 
 </style>

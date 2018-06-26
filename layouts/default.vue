@@ -48,15 +48,16 @@
   .container {
     display: grid;
     min-height: 100vh;
-    grid-template-columns: [header-start nav-start footer-start] auto minmax(150px, 15vw) auto [nav-end main-start] minmax(300px, 85vw);
-    grid-template-rows: [header-start] 10vh [header-end nav-start main-start] minmax(83vh, auto) [nav-end main-end footer-start] 7vh [footer-end];
-    grid-gap: 5px;
-    background: black;
+    grid-template-columns: 1fr;
+    grid-template-rows: [header-start] minmax(10vh, auto) [header-end nav-start] auto [nav-end main-start] 70vh [footer-start] 5vh;
+    grid-row-gap: 5px;
+    grid-column-gap: 2px;
+    background: red;
   }
 
   header {
     grid-area: header;
-    background: yellow;
+    background: black;
   }
 
   nav {
@@ -74,4 +75,12 @@
     background: lightgreen;
   }
 
+  @media (min-width: 990px) {
+    .container {
+      grid-template-columns: [header-start nav-start footer-start] auto minmax(150px, 15vw) auto [nav-end main-start] minmax(300px, 85vw);
+      grid-template-rows: [header-start] minmax(10vh, auto) [header-end nav-start main-start] minmax(83vh, auto) [nav-end main-end footer-start] 7vh [footer-end];
+      grid-gap: 5px 5px;
+      background: black;
+    }
+  }
 </style>

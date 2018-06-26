@@ -1,7 +1,7 @@
 <template>
   <div class="gallery">
     <div class="gallery__item">
-      <img alt="image" src="../assets/gallery/img-16.jpg">
+      <img @click="openImg" alt="image" src="../assets/gallery/img-16.jpg">
     </div>
     <div class="gallery__item">
       <img alt="image" src="../assets/gallery/img-2.jpg">
@@ -69,22 +69,63 @@ export default {
     AppContent,
     AppFooter,
     AppHeader
+  },
+  methods: {
+    openImg: function(evt) {
+      var img = document.querySelectorAll('.gallery__item img');
+      if((evt.type === 'click' || evt.type === 'keydown') && (evt.target.tagName === 'IMG' || evt.keycode === '23')) {
+        for(var i = 0; i < img.length; i++) {
+
+        }
+      }
+
+    }
   }
 }
 </script>
 
 <style>
+.gallery {
+  display: grid;
+  grid-gap: 3px;
+  grid-template-columns: repeat(object-fill, 1fr);
+}
+
+.gallery__item {
+  min-width: 100px;
+  position: relative;
+}
+
+.gallery__item img {
+  display: block;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition-property: transform, z-index;
+  transition-duration: 0.5s, 0.3s;
+  transition-timing-function: linear, linear;
+  transition-delay: 0.2s, 0.5s;
+}
+
+@media (min-width: 600px) {
   .gallery {
-    display: grid;
-    grid-gap: 3px;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .gallery__item {
     min-width: 200px;
-    position: relative;
-    background: yellow;
   }
+
+  .gallery__item img {
+    height: 300px;
+  }
+}
+
+@media (min-width: 990px) {
+  .gallery {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
 
   .gallery__item:hover img {
     position: absolute;
@@ -92,18 +133,7 @@ export default {
     z-index: 3;
   }
 
-  .gallery__item img {
-    display: block;
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    transition-property: transform, z-index;
-    transition-duration: 0.5s, 0s;
-    transition-timing-function: linear;
-    transition-delay: 0.2s, 0.5s;
-  }
-
-  .gallery__item--active img {
+  .active > img {
     width: auto;
     max-width: 70vw;
     height: auto;
