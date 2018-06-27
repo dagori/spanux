@@ -30,26 +30,11 @@
 </script>
 
 <style>
-  .bottom-layer {
-    background-image: url('../assets/images/plant-bg.jpg');
-    background-size: cover;
-    background-position: center;
-  }
-
-  @keyframes visual {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
   .container {
     display: grid;
     min-height: 100vh;
-    grid-template-columns: 1fr;
-    grid-template-rows: [header-start] minmax(10vh, auto) [header-end nav-start] auto [nav-end main-start] 70vh [footer-start] 5vh;
+    grid-template-columns: [header-start nav-start main-start footer-start] 1fr;
+    grid-template-rows: [header-start] minmax(10vh, auto) [header-end nav-start] auto [nav-end main-start] auto [main-end footer-start] 5vh [footer-end];
     grid-row-gap: 5px;
     grid-column-gap: 2px;
     background: red;

@@ -1,7 +1,8 @@
 <template>
-  <div class="gallery">
+  <div class="gallery" @click="openImg">
+    <div class="overlay"></div>
     <div class="gallery__item">
-      <img @click="openImg" alt="image" src="../assets/gallery/img-16.jpg">
+      <img alt="image" src="../assets/gallery/img-16.jpg" tabindex="0">
     </div>
     <div class="gallery__item">
       <img alt="image" src="../assets/gallery/img-2.jpg">
@@ -72,16 +73,23 @@ export default {
   },
   methods: {
     openImg: function(evt) {
-      var img = document.querySelectorAll('.gallery__item img');
-      if((evt.type === 'click' || evt.type === 'keydown') && (evt.target.tagName === 'IMG' || evt.keycode === '23')) {
-        for(var i = 0; i < img.length; i++) {
-
+      var imgContainer = document.querySelectorAll('.gallery__item');
+      var target = evt.target;
+      var overlay = document.querySelector('.overlay');
+      imgContainer.forEach(function(item) {
+        if(target.tagName === 'IMG' && target.parentElement === item) {
+          item.classList.add('active');
+          overlay.style.display = 'block';
         }
-      }
-
+        if(target === overlay) {
+          target.style.display = 'none';
+          item.classList.remove('active');
+        }
+      });
     }
   }
 }
+
 </script>
 
 <style>
@@ -93,7 +101,6 @@ export default {
 
 .gallery__item {
   min-width: 100px;
-  position: relative;
 }
 
 .gallery__item img {
@@ -101,10 +108,8 @@ export default {
   width: 100%;
   height: 200px;
   object-fit: cover;
-  transition-property: transform, z-index;
-  transition-duration: 0.5s, 0.3s;
-  transition-timing-function: linear, linear;
-  transition-delay: 0.2s, 0.5s;
+  filter: grayscale(0.7);
+  transition: filter .8s;
 }
 
 @media (min-width: 600px) {
@@ -127,15 +132,13 @@ export default {
   }
 }
 
-  .gallery__item:hover img {
-    position: absolute;
-    transform: scale(1.2);
-    z-index: 3;
+  .gallery__item:hover > img{
+    filter: grayscale(0);
   }
 
   .active > img {
     width: auto;
-    max-width: 70vw;
+    max-width: 90vw;
     height: auto;
     max-height: 80vh;
     object-fit: contain;
@@ -144,5 +147,18 @@ export default {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 4;
+    filter: grayscale(0);
   }
+
+  .overlay {
+    display: none;
+    background: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+  }
+
 </style>
