@@ -37,7 +37,13 @@ module.exports = {
 
   env: {baseUrl: (process.env.NODE_ENV === 'production' ? 'https://dagori.github.io/spanux/' : 'http://localhost:3000/spanux')},
 
-  css: ['~/assets/css/main.css'],
+  css: [
+    '@/assets/css/main.css',
+    '@/assets/scss/main.scss'
+  ],
 
-  modules: ['@nuxtjs/axios']
+  modules: [
+    '@nuxtjs/axios',
+    ['nuxt-sass-resources-loader', '@/assets/scss/main.scss']
+  ]
 }

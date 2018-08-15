@@ -1,6 +1,6 @@
 <template>
   <div class="gallery" @click="openImg">
-    <div class="overlay"></div>
+    <div class="overlay" @click="closeImg"></div>
     <div class="gallery__item">
       <img alt="image" src="../assets/gallery/img-16.jpg">
     </div>
@@ -60,27 +60,43 @@
 
 <script>
   export default {
+    data () {
+      return {
+        imgList: {},
+        overlay: {},
+        fullItemLength: 2,
+        activeImg: false
+      }
+    },
+    mounted: function () {
+      this.$nextTick(function () {
+        this.imgList = this.$el.querySelectorAll('.gallery__item'),
+        this.overlay = this.$el.querySelector('.overlay')
+      })
+    },
     methods: {
-      openImg: evt => {
-        var imgContainer = document.querySelectorAll('.gallery__item');
-        var target = evt.target;
-        var overlay = document.querySelector('.overlay');
-        imgContainer.forEach(function(item) {
-          if(target.tagName === 'IMG' && target.parentElement === item) {
-            item.classList.add('active');
-            overlay.style.display = 'block';
+      openImg: function (evt) {
+        this.imgList.forEach((item) => {
+          if(evt.target.tagName === 'IMG' && evt.target.parentElement === item) {
+            this.activeImg = document.createElement('div');
+            this.activeImg.className = 'active__img';
+            this.activeImg.innerHTML = item.innerHTML;
+            item.appendChild(this.activeImg);
+            this.overlay.style.display = 'block';
           }
-          if(target === overlay) {
-            target.style.display = 'none';
-            item.classList.remove('active');
-          }
-        });
+        })
+      },
+      closeImg: function () {
+        if(this.activeImg) {
+          this.activeImg.remove();
+          this.overlay.style.display = 'none';
+        }
       }
     }
   }
 </script>
 
-<style>
+<style lang="scss">
 .gallery {
   display: grid;
   grid-gap: 3px;
@@ -100,7 +116,7 @@
   transition: filter .8s;
 }
 
-@media (min-width: 600px) {
+@media (min-width: $tablet) {
   .gallery {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -114,20 +130,20 @@
   }
 }
 
-@media (min-width: 990px) {
+@media (min-width: $desktop) {
   .gallery {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 
-  .gallery__item:hover > img{
+  .gallery__item:hover > img:first-child{
     filter: grayscale(0);
   }
 
-  .active > img {
+  .active__img > img {
     width: auto;
-    max-width: 90vw;
     height: auto;
+    max-width: 90vw;
     max-height: 80vh;
     object-fit: contain;
     position: fixed;

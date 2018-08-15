@@ -15,7 +15,7 @@
 
 </script>
 
-<style>
+<style lang="scss">
   .container__header {
     display: flex;
     flex-direction: column;
@@ -32,7 +32,7 @@
     font-size: 20px;
   }
 
-  @media (min-width: 600px) {
+  @media (min-width: $tablet) {
     .container__header {
       display: flex;
       flex-direction: row;

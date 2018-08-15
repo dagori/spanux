@@ -53,13 +53,13 @@
     transition: font-size 1s;
   }
 
-  @media (min-width: 600px) {
+  @media (min-width: $tablet) {
     .subscribe__input::placeholder {
       font-size: 70%;
     }
   }
 
-  @media (min-width: 990px) {
+  @media (min-width: $desktop) {
     .subscribe__input::placeholder {
       font-size: 85%;
     }

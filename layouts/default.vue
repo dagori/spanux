@@ -25,7 +25,7 @@
   }
 </script>
 
-<style>
+<style lang="scss">
   .container {
     display: grid;
     min-height: 100vh;
@@ -58,7 +58,7 @@
     background: black;
   }
 
-  @media (min-width: 990px) {
+  @media (min-width: $desktop) {
     .container {
       grid-template-columns: [header-start nav-start footer-start] auto minmax(150px, 15vw) auto [nav-end main-start] minmax(300px, 85vw);
       grid-template-rows: [header-start] minmax(auto, 200px) [header-end nav-start main-start] minmax(calc(83vh-9em), auto) [nav-end main-end footer-start] 7vh [footer-end];

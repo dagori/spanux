@@ -87,7 +87,7 @@
     margin-top: 5px;
   }
 
-  @media (min-width: 660px) {
+  @media (min-width: $tablet) {
     .button-list__button {
       font-size: 100%;
     }
@@ -103,7 +103,7 @@
     }
   }
 
-  @media (min-width: 990px) {
+  @media (min-width: $desktop) {
     .post {
       grid-template-columns: 1fr 500px;
       border-bottom-left-radius: 10px;

@@ -9,7 +9,7 @@
   </div>
 </template>
 
-<style>
+<style lang="scss">
   .nav-menu {
     margin-top: 5px;
     text-align: center;
@@ -51,11 +51,11 @@
     color: red;
   }
 
-  @media (min-width: 990px) {
+  @media (min-width: $desktop) {
     .link {
       padding: 10px 20px 10px;
     }
-    
+
     .nav-menu {
       display: none;
     }

@@ -7,7 +7,7 @@
     color: white;
     margin: 0 auto;
     text-align: center;
-    padding-top: 10px;
+    padding: 10px;
 
     a {
       color: white;
