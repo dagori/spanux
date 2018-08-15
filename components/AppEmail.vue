@@ -1,5 +1,6 @@
 <template>
-  <form class="subscribe" action="" autocomplete="on" enctype="multipart/form-data" method="post" name="subscribe">
+  <form class="subscribe" :action="location"
+  autocomplete="off" enctype="multipart/form-data" method="post" name="subscribe">
     <input type="email" class="subscribe__input" placeholder="Newsletter email" autofocus @mouseout="changePlaceholder" @mouseover="changePlaceholder">
     <button class="button subscribe__button" type="submit"></button>
   </form>
@@ -7,6 +8,16 @@
 
 <script>
   export default {
+    data () {
+      return {
+        location: ''
+      }
+    },
+    mounted: function () {
+      this.$nextTick(function () {
+        this.location = document.location.href
+      })
+    },
     methods: {
       changePlaceholder(evt) {
         if (evt.type === 'mouseover') {

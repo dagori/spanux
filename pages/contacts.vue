@@ -1,5 +1,5 @@
 <template>
-  <div class="content-container__contacts">
+  <div class="container__contacts">
     <app-email/>
   </div>
 </template>
@@ -17,7 +17,7 @@
 </script>
 
 <style style="css">
-  .content-container__contacts {
+  .container__contacts {
     display: flex;
     justify-content: center;
   }

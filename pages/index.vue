@@ -1,5 +1,5 @@
 <template>
-  <div class="gallery" @click="openImg">
+  <div class="container__gallery gallery" @click="openImg">
     <div class="overlay" @click="closeImg"></div>
     <div class="gallery__item">
       <img alt="image" src="../assets/gallery/img-16.jpg">
@@ -64,7 +64,6 @@
       return {
         imgList: {},
         overlay: {},
-        fullItemLength: 2,
         activeImg: false
       }
     },
