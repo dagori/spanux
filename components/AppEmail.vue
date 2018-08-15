@@ -2,7 +2,7 @@
   <form class="subscribe" v-bind:action="location" autocomplete="off" enctype="multipart/form-data"
     method="post" name="subscribe">
     <input type="email" class="subscribe__input" placeholder="Newsletter email" autofocus required @mouseout="changePlaceholder" @mouseover="changePlaceholder">
-    <button class="button subscribe__button" type="submit" ></button>
+    <button class="button subscribe__button" type="submit"></button>
   </form>
 </template>
 
