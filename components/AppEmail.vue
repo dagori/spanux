@@ -100,7 +100,7 @@
     &::before {
       position: absolute;
       content: " ";
-      top: 40%;
+      top: 40px;
       left: 35%;
       width: 0;
       height: 0;
@@ -113,7 +113,7 @@
     &::after {
       position: absolute;
       content: " ";
-      top: 29.9%;
+      top: 30px;
       left: 35%;
       width: 0;
       height: 0;

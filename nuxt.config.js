@@ -46,9 +46,11 @@ module.exports = {
     '@nuxtjs/axios',
     ['nuxt-sass-resources-loader', '@/assets/scss/main.scss'],
     ['nuxt-imagemin', {
+        optipng: { optimizationLevel: 5 },
+        gifsicle: { optimizationLevel: 2 },
         jpegtran: {
           progressive: true,
-          quality: 80
+          quality: 70
         }
       }
     ]

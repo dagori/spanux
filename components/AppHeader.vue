@@ -1,54 +1,71 @@
 <template>
   <div class="container__header">
     <div class="logo">
-      <picture>
-        <source media="(min-width: 990px)" srcset="../static/images/tree-desktop.svg">
-        <source media="(min-width: 600px)" srcset="../static/images/tree-tablet.svg">
-        <img class="logo__image" src="../static/images/tree-mobile.svg" alt="logo">
-      </picture>
+      <img class="logo__image" src="../static/images/tree-desktop.svg" alt="logo">
     </div>
-    <div class="title"><nuxt-link to="/">Single Page Application & Grid Gallery</nuxt-link></div>
+    <div class="title">
+      <nuxt-link to="/">Single Page Application & Grid Gallery</nuxt-link>
+    </div>
   </div>
 </template>
 
 <script>
-
 </script>
 
 <style lang="scss">
   .container__header {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
+    height: 100%;
     align-items: center;
   }
 
   .title {
     text-align: center;
+    order: -1;
+    padding-top: 5px;
+    a {
+      color: white;
+      font-size: 20px;
+    }
   }
 
-  .title a {
-    color: white;
-    font-size: 20px;
+  .logo {
+    width: 100px;
+    &__image {
+      display: block;
+      height: 100%;
+    }
   }
 
   @media (min-width: $tablet) {
     .container__header {
       display: flex;
       flex-direction: row;
-      justify-content: flex-start;
+      justify-content: center;
+      margin: 0 auto;
+      width: 70%;
     }
 
     .logo {
-      margin-left: 30%;
+      height: 150px;
+      width: 150px;
     }
 
     .title {
-      margin: 0 20px;
+      order: 1;
+      margin: 0 5px 0 10px;
+      a {
+        font-size: 30px;
+      }
     }
-
-    .title a {
-      font-size: 30px;
+  }
+  
+  @media (min-width: $desktop) {
+    .logo {
+      height: 200px;
+      width: 200px;
     }
   }
 </style>
