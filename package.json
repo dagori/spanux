@@ -16,6 +16,7 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.3.1",
     "nuxt": "^1.0.0",
+    "nuxt-imagemin": "^0.1.2",
     "nuxt-sass-resources-loader": "^2.0.4"
   },
   "devDependencies": {
