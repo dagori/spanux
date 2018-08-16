@@ -51,9 +51,8 @@ module.exports = {
         jpegtran: {
           progressive: true,
           quality: 70
-        },
-        svgo: null
-      },
+        }
+      }
     ]
   ]
 }

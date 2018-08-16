@@ -2,9 +2,9 @@
   <div class="container__header">
     <div class="logo">
       <picture>
-        <source media="(min-width: 990px)" srcset="../assets/images/tree-desktop.svg">
-        <source media="(min-width: 600px)" srcset="../assets/images/tree-tablet.svg">
-        <img class="logo__image" src="../assets/images/tree-mobile.svg" alt="logo">
+        <source media="(min-width: 990px)" srcset="../static/images/tree-desktop.svg">
+        <source media="(min-width: 600px)" srcset="../static/images/tree-tablet.svg">
+        <img class="logo__image" src="../static/images/tree-mobile.svg" alt="logo">
       </picture>
     </div>
     <div class="title"><nuxt-link to="/">Single Page Application & Grid Gallery</nuxt-link></div>
